@@ -3,6 +3,8 @@
 
 sem_t sem0,sem1, sem2, sem3, sem4, sem5, sem6;
 
+std::mutex speedMutex;
+
 //Construtor dos trens
 Trem::Trem(int ID, int x, int y){
     this->ID = ID;
@@ -35,7 +37,8 @@ void destroySemaphores(){
 
 void Trem::setSpeed(int value){
     {
-        std::lock_guard<std::mutex> lock(mtx);
+        //Protege de mudanças de velocidade
+        std::lock_guard<std::mutex> lock(speedMutex);
         velocidade = value;
     }
     cv.notify_all();
@@ -129,11 +132,6 @@ void Trem::run(){
 
                 if(x > 430)
                     x -= 10;
-
-                if(x == 450)
-                {
-                    //sem_wait(&sem0);
-                }
             }
 
             if(x == 430 && y > 60)

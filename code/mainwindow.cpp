@@ -36,19 +36,19 @@ MainWindow::MainWindow(QWidget *parent) :
 //Função que será executada quando o sinal UPDATEGUI for emitido
 void MainWindow::updateInterface(int id, int x, int y){
     switch(id){
-    case 1: //Atualiza a posição do objeto da tela (quadrado) que representa o trem1
+    case 1: //Atualiza a posição do trem1
         ui->label_trem1->setGeometry(x,y,21,17);
         break;
-    case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
+    case 2: //Atualiza a posição do trem2
         ui->label_trem2->setGeometry(x,y,21,17);
         break;
-    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem3
+    case 3: //Atualiza a posição do trem3
         ui->label_trem3->setGeometry(x,y,21,17);
         break;
-    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem4
+    case 4: //Atualiza a posição do trem4
         ui->label_trem4->setGeometry(x,y,21,17);
         break;
-    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem5
+    case 5: //Atualiza a posição do trem5
         ui->label_trem5->setGeometry(x,y,21,17);
         break;
     default:

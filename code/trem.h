@@ -3,6 +3,12 @@
 
 #include <QThread>
 #include "semaphore.h"
+#include <mutex>
+
+
+
+// Mutex global para sincronizar mudanças de velocidade entre os trens
+extern std::mutex speedMutex;
 
 /*
  * Classe Trem herda QThread
